@@ -9,8 +9,8 @@ USER=tomcat6
 
 LOGS_DIR=/var/log/tomcat6
 
-# load the glassfish3 configuration file
-. /etc/default/glassfish3
+# load the tomcat6 configuration file
+#. /etc/default/tomcat6
 
 ##################################################
 # Get the action & configs

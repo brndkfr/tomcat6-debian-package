@@ -6,7 +6,7 @@
 	<version>6.0.36</version>
 	<packaging>pom</packaging>
 
-	<name>Debian Packaging Tomcat 6.0.36</name>
+	<name>Debian Packaging Tomcat</name>
 	<description>assembly instructions and configuration for packaging</description>
 
 	<properties>
@@ -77,64 +77,67 @@
 								<data>
 									<src>src/main/debian/bin</src>
 									<type>directory</type>
-									<includes>*.sh</includes>
+									<includes>*</includes>
 									<mapper>
 										<type>perm</type>
-										<prefix>/usr/local/lib/enbot/bin</prefix>
+										<prefix>/usr/local/lib/tomcat6/bin</prefix>
 										<filemode>755</filemode>
-										<user>enbot</user>
-										<group>enbot</group>
-									</mapper>
-								</data>
-								<data>
-									<src>src/main/debian/etc/tomcat6.conf</src>
-									<type>file</type>
-									<mapper>
-										<type>perm</type>
-										<prefix>/etc/tomcat6</prefix>
-										<strip>1</strip>
-										<filemode>660</filemode>
 										<user>tomcat6</user>
-										<group>adm</group>
+										<group>tomcat6</group>
 									</mapper>
 								</data>
 								<data>
-									<src>src/main/debian/etc/enbot.json</src>
-									<type>file</type>
+									<src>${project.build.directory}/tomcat6/bin</src>
+									<type>directory</type>
+									<includes>*.*</includes>
 									<mapper>
 										<type>perm</type>
-										<prefix>/etc/enbot</prefix>
-										<strip>1</strip>
-										<filemode>660</filemode>
-										<user>enbot</user>
-										<group>enbot</group>
-									</mapper>
-								</data>
-								<data>
-									<src>src/main/debian/upstart/enbot.conf</src>
-									<type>file</type>
-									<mapper>
-										<type>perm</type>
-										<prefix>/etc/init</prefix>
-										<filemode>644</filemode>
+										<prefix>/usr/share/tomcat6/bin</prefix>
+										<strip>0</strip>
+										<filemode>755</filemode>
 										<user>root</user>
 										<group>root</group>
 									</mapper>
-								</data>
-								<data>
-									<src>${project.build.directory}/${project.artifactId}-${project.version}/libs/</src>
+									</data>
+									<data>
+									<src>${project.build.directory}/tomcat6/lib</src>
 									<type>directory</type>
-									<includes>*.jar</includes>
+									<includes>*.*</includes>
 									<mapper>
 										<type>perm</type>
-										<prefix>/usr/local/lib/enbot/libs</prefix>
+										<prefix>/usr/share/tomcat6/lib</prefix>
 										<strip>0</strip>
 										<filemode>755</filemode>
-										<user>enbot</user>
-										<group>enbot</group>
+										<user>root</user>
+										<group>root</group>
 									</mapper>
-									<!-- <paths>/usr/local/lib/enbot/libs</paths> -->
-								</data>
+									</data>
+									<data>
+										<src>${project.build.directory}/tomcat6/conf</src>
+										<type>directory</type>
+										<includes>*.*</includes>
+										<mapper>
+											<type>perm</type>
+											<prefix>/usr/share/tomcat6/skel/conf</prefix>
+											<strip>0</strip>
+											<filemode>755</filemode>
+											<user>root</user>
+											<group>root</group>
+										</mapper>
+									</data>
+									<data>
+										<src>${project.build.directory}/tomcat6/webapps</src>
+										<type>directory</type>
+										<includes>*.*</includes>
+										<mapper>
+											<type>perm</type>
+											<prefix>/usr/share/tomcat6/skel/webapps</prefix>
+											<strip>0</strip>
+											<filemode>755</filemode>
+											<user>root</user>
+											<group>root</group>
+										</mapper>
+									</data>
 								</dataSet>
 						</configuration>
 					</execution>

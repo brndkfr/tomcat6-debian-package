@@ -53,7 +53,7 @@
 						<configuration>
 							<url>http://apache.mirrors.pair.com/tomcat/tomcat-6/v${project.version}/bin/apache-tomcat-${project.version}.zip</url>
 							<unpack>true</unpack>
-							<outputDirectory>${project.build.directory}/tomcat6</outputDirectory>
+							<outputDirectory>${basedir}/work/tomcat6</outputDirectory>
 						</configuration>
 					</execution>
 				</executions>
@@ -87,7 +87,7 @@
 									</mapper>
 								</data>
 								<data>
-									<src>${project.build.directory}/tomcat6/bin</src>
+									<src>${basedir}/work/tomcat6/bin</src>
 									<type>directory</type>
 									<includes>*.*</includes>
 									<mapper>
@@ -100,7 +100,7 @@
 									</mapper>
 									</data>
 									<data>
-									<src>${project.build.directory}/tomcat6/lib</src>
+									<src>${basedir}/work/tomcat6/lib</src>
 									<type>directory</type>
 									<includes>*.*</includes>
 									<mapper>
@@ -113,7 +113,7 @@
 									</mapper>
 									</data>
 									<data>
-										<src>${project.build.directory}/tomcat6/conf</src>
+										<src>${basedir}/work/tomcat6/conf</src>
 										<type>directory</type>
 										<includes>*.*</includes>
 										<mapper>
@@ -126,7 +126,7 @@
 										</mapper>
 									</data>
 									<data>
-										<src>${project.build.directory}/tomcat6/webapps</src>
+										<src>${basedir}/work/tomcat6/webapps</src>
 										<type>directory</type>
 										<includes>*.*</includes>
 										<mapper>

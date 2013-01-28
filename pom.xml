@@ -16,8 +16,9 @@
 		<jdeb-version>0.11</jdeb-version>
 		
 		<!-- debian packaging properties -->
-		<deb.pkgname>tomcat-${version}</deb.pkgname>
+		<deb.pkgname>tomcat${version}</deb.pkgname>
 	</properties>
+	<pluginRepositories>
 	<pluginRepository>
 		<id>sonatype-public-repository</id>
 		<url>https://oss.sonatype.org/content/groups/public</url>
@@ -28,6 +29,7 @@
 			<enabled>true</enabled>
 		</releases>
 	</pluginRepository>	
+	</pluginRepositories>
 	
 	<build>
 		<resources>

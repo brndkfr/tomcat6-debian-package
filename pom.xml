@@ -69,7 +69,7 @@
 							<goal>jdeb</goal>
 						</goals>
 						<configuration>
-							<deb>${project.build.directory}/${deb.pkgname}_${project.version}.deb</deb>
+							<deb>${project.build.directory}/${deb.pkgname}.deb</deb>
 							<controlDir>${basedir}/src/main/debian/config</controlDir>
 							<installDir>/usr/share/tomcat6</installDir>
 							<verbose>true</verbose>
@@ -80,7 +80,7 @@
 									<includes>*</includes>
 									<mapper>
 										<type>perm</type>
-										<prefix>/usr/local/lib/tomcat6/bin</prefix>
+										<prefix>/usr/share/tomcat6/bin</prefix>
 										<filemode>755</filemode>
 										<user>tomcat6</user>
 										<group>tomcat6</group>

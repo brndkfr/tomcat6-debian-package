@@ -1,0 +1,7 @@
+Package: tomcat6
+Version: 6.0.36
+Section: java ee
+Priority: hi
+Architecture: all
+Description: Apache Tomcat 6.0.36
+Maintainer: b.kiefer@raion.de

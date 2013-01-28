@@ -1,0 +1,9 @@
+#!/bin/sh
+
+TOMCAT_HOME=/usr/share/tomcat6
+USER=tomcat6
+
+if [ -z "$(getent passwd $USER)" ]; then
+  echo "creating the user and group '$USER'"
+  sudo adduser --system --group 
+fi

@@ -1,0 +1,67 @@
+#!/bin/sh
+
+#
+# Init script for  tomcat6 
+#
+
+TOMCAT_HOME=/usr/share/tomcat6
+USER=tomcat6
+
+LOGS_DIR=/var/log/tomcat6
+
+# load the glassfish3 configuration file
+. /etc/default/glassfish3
+
+##################################################
+# Get the action & configs
+##################################################
+ACTION=$1
+
+##################################################
+# Setup JAVA if unset
+##################################################
+if [ -z "$JAVA" ]
+then
+  JAVA=$(which java)
+fi
+
+if [ -z "$JAVA" ]
+then
+  echo "Cannot find a Java JDK. Please set either set JAVA or put java (>=1.6) in your PATH." 2>&2
+  exit 1
+fi
+
+##################################################
+# Do the action
+##################################################
+case "$ACTION" in
+
+  start)
+    echo "Starting Tomcat6 please wait ....."
+    sudo -u $USER /usr/share/tomcat6/bin/startup.sh
+
+    exit 1
+    ;;
+
+  stop)
+    echo "Stopping Tomcat6 please wait ....."
+    sudo -u $USER /usr/share/tomcat6/bin/shutdown.sh
+    exit 1
+    ;;
+
+  restart)
+    echo "Restarting Tomcat6 please wait ....."
+    sudo -u $USER /usr/share/tomcat6/bin/shutdown.sh
+	sudo -u $USER /usr/share/tomcat6/bin/startup.sh
+
+    exit 1
+    ;;
+
+  *)
+    echo "usage: $0 (|start|stop|restart)"
+
+    exit 1
+    ;;
+esac
+
+exit 0

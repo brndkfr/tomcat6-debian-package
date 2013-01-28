@@ -1,0 +1,22 @@
+#!/bin/sh
+
+TOMCAT_HOME=/usr/share/tomcat6
+USER=tomcat6
+
+LOGS_DIR=/var/log/tomcat6
+
+if [ -d "$LOGS_DIR" ]; then
+  echo "removing logs directory"
+  sudo rm -rf $LOGS_DIR
+fi
+
+if [ -d "$TOMCAT_HOME" ]; then
+  echo "removing server directory"
+  sudo rm -rf $TOMCAT_HOME
+fi
+
+if [ -n "$(getent passwd tomcat6)" ]; then
+  echo "removing the user and group '$USER'"
+  sudo deluser --system $USER
+fi
+

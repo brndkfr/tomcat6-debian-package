@@ -1,0 +1,19 @@
+#!/bin/sh
+
+TOMCAT_HOME=/usr/share/tomcat6
+USER=tomcat6
+
+LOGS_DIR=/var/log/tomcat6
+
+if [ "$TOMCAT_HOME/bin" ]; then
+  sudo chmod a+x $TOMCAT_HOME/bin/*
+fi
+
+if [ ! -d "$LOGS_DIR" ]; then
+  echo "creating log directory '$LOGS_DIR'"
+  sudo mkdir -p $LOGS_DIR
+  sudo chown $USER:$USER $LOGS_DIR
+fi
+
+
+

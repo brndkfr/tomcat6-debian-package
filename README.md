@@ -3,17 +3,15 @@ Glassfish3 Debian Package
 
 The purpose of this project is to provide a debian package for Tomcat6 in cases the newest version is not available in debian or ubuntu repositories.
 
+It is inspired by the glassfish3-debian-package project : https://github.com/vbossica/glassfish3-debian-package
+
+
 Build
 -----
 
-The package is build using [Gradle] [1] so make sure it is installed on your system. After having downloaded the official Glassfish archive and placed it at the root of this checked out project:
+new text here :)
 
-    wget http://download.java.net/glassfish/3.1.2.2/release/glassfish-3.1.2.2.zip .
-    gradle unzip
 
-and create the package
-
-    gradle clean debian
 
 Finally, copy or publish the file `target/tomcat6.0.xx.deb`.
 

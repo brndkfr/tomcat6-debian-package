@@ -12,6 +12,8 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+		<tomcat-dir>${basedir}/work/apache-tomcat-${project.version}</tomcat-dir>
+
 		<!-- plugin versions -->
 		<jdeb-version>0.11</jdeb-version>
 		
@@ -53,7 +55,7 @@
 						<configuration>
 							<url>http://apache.mirrors.pair.com/tomcat/tomcat-6/v${project.version}/bin/apache-tomcat-${project.version}.zip</url>
 							<unpack>true</unpack>
-							<outputDirectory>${basedir}/work/tomcat6</outputDirectory>
+							<outputDirectory>${basedir}/work</outputDirectory>
 						</configuration>
 					</execution>
 				</executions>

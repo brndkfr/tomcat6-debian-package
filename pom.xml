@@ -89,7 +89,7 @@
 									</mapper>
 								</data>
 								<data>
-									<src>${basedir}/work/tomcat6/bin</src>
+									<src>${tomcat-dir}/bin</src>
 									<type>directory</type>
 									<includes>*.*</includes>
 									<mapper>
@@ -102,7 +102,7 @@
 									</mapper>
 									</data>
 									<data>
-									<src>${basedir}/work/tomcat6/lib</src>
+									<src>${tomcat-dir}/lib</src>
 									<type>directory</type>
 									<includes>*.*</includes>
 									<mapper>
@@ -115,12 +115,12 @@
 									</mapper>
 									</data>
 									<data>
-										<src>${basedir}/work/tomcat6/conf</src>
+										<src>${tomcat-dir}/conf</src>
 										<type>directory</type>
 										<includes>*.*</includes>
 										<mapper>
 											<type>perm</type>
-											<prefix>/usr/share/tomcat6/skel/conf</prefix>
+											<prefix>${tomcat-dir}/skel/conf</prefix>
 											<strip>0</strip>
 											<filemode>755</filemode>
 											<user>root</user>
@@ -128,7 +128,7 @@
 										</mapper>
 									</data>
 									<data>
-										<src>${basedir}/work/tomcat6/webapps</src>
+										<src>${tomcat-dir}/webapps</src>
 										<type>directory</type>
 										<includes>*.*</includes>
 										<mapper>

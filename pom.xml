@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>de.raion.dpkgtomcat6</groupId>
+	<groupId>de.raion.tomcat6-debian-package</groupId>
 	<artifactId>tomcat6-debian-package</artifactId>
 	<version>6.0.36</version>
 	<packaging>pom</packaging>
@@ -13,14 +13,11 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<!-- plugin versions -->
-		<maven-assembly-plugin-version>2.3</maven-assembly-plugin-version>
 		<jdeb-version>0.11</jdeb-version>
-		<appassembler-maven-plugin-version>1.3</appassembler-maven-plugin-version>
-
+		
 		<!-- debian packaging properties -->
 		<deb.pkgname>tomcat-${version}</deb.pkgname>
 	</properties>
-	
 	<pluginRepository>
 		<id>sonatype-public-repository</id>
 		<url>https://oss.sonatype.org/content/groups/public</url>
@@ -30,7 +27,7 @@
 		<releases>
 			<enabled>true</enabled>
 		</releases>
-	</pluginRepository>
+	</pluginRepository>	
 	
 	<build>
 		<resources>

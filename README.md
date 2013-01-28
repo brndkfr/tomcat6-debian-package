@@ -1,4 +1,4 @@
-Glassfish3 Debian Package
+Tomcat6 Debian Package
 =========================
 
 The purpose of this project is to provide a debian package for Tomcat6 in cases the newest version is not available in debian or ubuntu repositories.

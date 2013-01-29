@@ -3,7 +3,7 @@ Tomcat6 Debian Package
 
 The purpose of this project is to provide a debian package for Tomcat6 in cases the newest version is not available in debian or ubuntu repositories.
 
-It is inspired by the [glassfish3-debian-package]{https://github.com/vbossica/glassfish3-debian-package} project  from [vbossica]{https://github.com/vbossica}
+It is inspired by the [glassfish3-debian-package](https://github.com/vbossica/glassfish3-debian-package) project  from [vbossica](https://github.com/vbossica)
 
 Warning
 -------

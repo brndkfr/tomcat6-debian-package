@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TOMCAT_HOME=/usr/share/tomcat6
+TOMCAT_HOME=/usr/local/lib/tomcat6
 USER=tomcat6
 
 LOGS_DIR=/var/log/tomcat6
@@ -18,5 +18,9 @@ fi
 if [ -n "$(getent passwd tomcat6)" ]; then
   echo "removing the user and group '$USER'"
   sudo deluser --system $USER
+  sudo delgroup --only-if-empty $USER
 fi
+
+# delete the symbolic link
+sudo rm /usr/bin/tomcat6
 

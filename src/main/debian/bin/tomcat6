@@ -4,7 +4,7 @@
 # Init script for  tomcat6 
 #
 
-TOMCAT_HOME=/usr/share/tomcat6
+TOMCAT_HOME=/usr/local/lib/tomcat6
 USER=tomcat6
 
 LOGS_DIR=/var/log/tomcat6
@@ -38,30 +38,31 @@ case "$ACTION" in
 
   start)
     echo "Starting Tomcat6 please wait ....."
-    sudo -u $USER /usr/share/tomcat6/bin/startup.sh
-
-    exit 1
+    sudo -u $USER $TOMCAT_HOME/bin/startup.sh
+    echo "Tomcat6 started"
+  
     ;;
 
   stop)
     echo "Stopping Tomcat6 please wait ....."
-    sudo -u $USER /usr/share/tomcat6/bin/shutdown.sh
-    exit 1
+    sudo -u $USER $TOMCAT_HOME/bin/shutdown.sh
+    echo "Tomcat6 stopped"
+  
     ;;
 
   restart)
     echo "Restarting Tomcat6 please wait ....."
-    sudo -u $USER /usr/share/tomcat6/bin/shutdown.sh
-	sudo -u $USER /usr/share/tomcat6/bin/startup.sh
-
-    exit 1
+    sudo -u $USER $TOMCAT_HOME/bin/shutdown.sh
+	  sudo -u $USER $TOMCAT_HOME/bin/startup.sh
+    echo "Tomcat6 restarted"
+  
     ;;
 
   *)
-    echo "usage: $0 (|start|stop|restart)"
+    echo "usage: $0 (start|stop|restart)"
 
     exit 1
     ;;
 esac
 
-exit 0
+

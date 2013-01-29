@@ -1,19 +1,22 @@
 #!/bin/sh
 
-TOMCAT_HOME=/usr/share/tomcat6
+TOMCAT_HOME=/usr/local/lib/tomcat6
 USER=tomcat6
+GROUP=tomcat6
 
 LOGS_DIR=/var/log/tomcat6
 
 if [ "$TOMCAT_HOME/bin" ]; then
-  sudo chmod a+x $TOMCAT_HOME/bin/*
+  sudo chmod a+x $TOMCAT_HOME/bin/tomcat6
 fi
 
 if [ ! -d "$LOGS_DIR" ]; then
   echo "creating log directory '$LOGS_DIR'"
   sudo mkdir -p $LOGS_DIR
-  sudo chown $USER:$USER $LOGS_DIR
+  sudo chown $USER:$GROUP $LOGS_DIR
 fi
 
+# create the symbolic link
+sudo ln -f -s /usr/local/lib/tomcat6/bin/tomcat6 /usr/bin/tomcat6
 
 

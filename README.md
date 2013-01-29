@@ -5,6 +5,10 @@ The purpose of this project is to provide a debian package for Tomcat6 in cases 
 
 It is inspired by the glassfish3-debian-package project : https://github.com/vbossica/glassfish3-debian-package
 
+Warning
+-------
+not finalized. do not use.
+
 
 Build
 -----

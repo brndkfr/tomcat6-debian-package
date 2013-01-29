@@ -12,7 +12,9 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<tomcat-dir>${basedir}/work/apache-tomcat-${project.version}</tomcat-dir>
+		<!--<tomcat-dir>${basedir}/work/apache-tomcat-${project.version}</tomcat-dir>-->
+		<!-- md5 checksum for the apache-tomcat-${project.version}.zip -->
+		<tomcat6-md5>558deac4f7d61436d36aff838fafb406</tomcat6-md5>
 
 		<!-- plugin versions -->
 		<jdeb-version>0.11</jdeb-version>
@@ -56,6 +58,7 @@
 							<url>http://apache.mirrors.pair.com/tomcat/tomcat-6/v${project.version}/bin/apache-tomcat-${project.version}.zip</url>
 							<unpack>true</unpack>
 							<outputDirectory>${basedir}/work</outputDirectory>
+							<md5>${tomcat6-mdf}</md5>
 						</configuration>
 					</execution>
 				</executions>
@@ -73,7 +76,7 @@
 						<configuration>
 							<deb>${project.build.directory}/${deb.pkgname}.deb</deb>
 							<controlDir>${basedir}/src/main/debian/config</controlDir>
-							<installDir>/usr/share/tomcat6</installDir>
+							<installDir>/usr/local/lib/tomcat6</installDir>
 							<verbose>true</verbose>
 							<dataSet>
 								<data>
@@ -82,65 +85,37 @@
 									<includes>*</includes>
 									<mapper>
 										<type>perm</type>
-										<prefix>/usr/share/tomcat6/bin</prefix>
+										<prefix>/usr/local/lib/tomcat6/bin</prefix>
 										<filemode>755</filemode>
 										<user>tomcat6</user>
 										<group>tomcat6</group>
 									</mapper>
 								</data>
 								<data>
-									<src>${tomcat-dir}/bin</src>
+                                     <src>src/main/debian/upstart</src>
+                                     <type>directory</type>
+                                     <includes>*.conf</includes>
+                                     <mapper>
+                                            <type>perm</type>
+                                             <prefix>/etc/init</prefix>
+                                             <filemode>644</filemode>
+                                             <user>root</user>
+                                             <group>root</group>
+                                     </mapper>
+	                            </data>
+								<data>
+									<src>${basedir}/work/apache-tomcat-${project.version}</src>
 									<type>directory</type>
-									<includes>*.*</includes>
+									<includes>*/**</includes>
 									<mapper>
 										<type>perm</type>
-										<prefix>/usr/share/tomcat6/bin</prefix>
-										<strip>0</strip>
+										<prefix>/usr/local/lib/tomcat6</prefix>
 										<filemode>755</filemode>
-										<user>root</user>
-										<group>root</group>
+										<user>tomcat6</user>
+										<group>tomcat6</group>
 									</mapper>
-									</data>
-									<data>
-									<src>${tomcat-dir}/lib</src>
-									<type>directory</type>
-									<includes>*.*</includes>
-									<mapper>
-										<type>perm</type>
-										<prefix>/usr/share/tomcat6/lib</prefix>
-										<strip>0</strip>
-										<filemode>755</filemode>
-										<user>root</user>
-										<group>root</group>
-									</mapper>
-									</data>
-									<data>
-										<src>${tomcat-dir}/conf</src>
-										<type>directory</type>
-										<includes>*.*</includes>
-										<mapper>
-											<type>perm</type>
-											<prefix>${tomcat-dir}/skel/conf</prefix>
-											<strip>0</strip>
-											<filemode>755</filemode>
-											<user>root</user>
-											<group>root</group>
-										</mapper>
-									</data>
-									<data>
-										<src>${tomcat-dir}/webapps</src>
-										<type>directory</type>
-										<includes>*.*</includes>
-										<mapper>
-											<type>perm</type>
-											<prefix>/usr/share/tomcat6/skel/webapps</prefix>
-											<strip>0</strip>
-											<filemode>755</filemode>
-											<user>root</user>
-											<group>root</group>
-										</mapper>
-									</data>
-								</dataSet>
+								</data>
+							</dataSet>
 						</configuration>
 					</execution>
 				</executions>

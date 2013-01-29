@@ -6,13 +6,19 @@
 	<version>6.0.36</version>
 	<packaging>pom</packaging>
 
-	<name>Debian Packaging Tomcat</name>
+	<name>Tomcat6 Debian Packaging</name>
 	<description>assembly instructions and configuration for packaging</description>
+	<url>https://github.com/brndkfr/tomcat6-debian-package</url>
+	<issueManagement>
+		<system>Github issue tracker</system>
+		<url>https://github.com/brndkfr/tomcat6-debian-package/issues</url>
+	</issueManagement>
+	<inceptionYear>2013</inceptionYear>
+	
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-		<!--<tomcat-dir>${basedir}/work/apache-tomcat-${project.version}</tomcat-dir>-->
+		
 		<!-- md5 checksum for the apache-tomcat-${project.version}.zip -->
 		<tomcat6-md5>558deac4f7d61436d36aff838fafb406</tomcat6-md5>
 
@@ -121,42 +127,25 @@
 				</executions>
 			</plugin>
 		</plugins>
-		<pluginManagement>
-			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											org.apache.maven.plugins
-										</groupId>
-										<artifactId>
-											maven-clean-plugin
-										</artifactId>
-										<versionRange>
-											[2.5,)
-										</versionRange>
-										<goals>
-											<goal>clean</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
 	</build>
-
-
+	<developers>
+		<developer>
+			<id>1</id>
+			<name>Bernd Kiefer</name>
+			<email>b.kiefer@raion.de</email>
+			<url>http://github.com/brndkfr</url>
+			<roles>
+				<role>Owner</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>2</id>
+			<name>Cedric Meury</name>
+			<email>cm@wurmlo.ch</email>
+			<url>http://www.cedric-meury.ch</url>
+			<roles>
+				<role>Contributor</role>
+			</roles>
+		</developer>
+	</developers>
 </project>

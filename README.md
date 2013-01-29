@@ -36,14 +36,15 @@ Plugin configuration
 
 ### switching to an newer tomcat6 version
 
-* set the <version> tag in the pom.xml to the new version, for example 6.0.100
-* copy the md5-checksum from the download page into property <tomcat6-md5>
+* set the `<version>` tag in the pom.xml to the new version, for example 6.0.100
+* copy the md5-checksum from the download page into property `<tomcat6-md5>`
 * rebuild project
 
 
 ### switching download link
 
 * choose a different mirror download link from the download site, for example: http://www.eu.apache.org/dist/tomcat/tomcat-6/v6.0.36/bin/apache-tomcat-6.0.36.zip
-* modify <tomcat6-base-download-url> to http://www.eu.apache.org/dist/tomcat/tomcat-6/${project.version}/bin/
+* modify `<tomcat6-base-download-url>` to 
+		http://www.eu.apache.org/dist/tomcat/tomcat-6/${project.version}/bin/
 	
 

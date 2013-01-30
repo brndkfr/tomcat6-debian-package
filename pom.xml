@@ -23,7 +23,7 @@
 		<tomcat6-md5>558deac4f7d61436d36aff838fafb406</tomcat6-md5>
 
 		<!-- plugin versions -->
-		<jdeb-version>0.11</jdeb-version>
+		<jdeb-version>1.0</jdeb-version>
 		
 		<!-- debian packaging properties -->
 		<deb.pkgname>tomcat${version}</deb.pkgname>

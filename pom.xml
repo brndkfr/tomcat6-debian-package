@@ -64,7 +64,7 @@
 							<url>http://apache.mirrors.pair.com/tomcat/tomcat-6/v${project.version}/bin/apache-tomcat-${project.version}.zip</url>
 							<unpack>true</unpack>
 							<outputDirectory>${basedir}/work</outputDirectory>
-							<md5>${tomcat6-mdf}</md5>
+							<md5>${tomcat6-md5}</md5>
 						</configuration>
 					</execution>
 				</executions>
